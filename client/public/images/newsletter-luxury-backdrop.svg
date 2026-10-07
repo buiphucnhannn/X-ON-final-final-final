@@ -1,0 +1,128 @@
+<svg width="1920" height="600" viewBox="0 0 1920 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Deep Opulent Wine & Noir Studio Base Gradient -->
+    <radialGradient id="nlStudioSpotlight" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#3D1725" stop-opacity="0.98" />
+      <stop offset="45%" stop-color="#28101A" stop-opacity="0.99" />
+      <stop offset="100%" stop-color="#14080D" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Warm Champagne Gold Center Aura -->
+    <radialGradient id="nlGoldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ECC68F" stop-opacity="0.32" />
+      <stop offset="50%" stop-color="#C8A97E" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#C8A97E" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Rose Velvet Bloom Glow -->
+    <radialGradient id="nlRoseBloom" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A83952" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#702235" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#1F171A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Silk Wave Gradient 1 -->
+    <linearGradient id="nlSilk1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8A97E" stop-opacity="0.02" />
+      <stop offset="30%" stop-color="#E5C79A" stop-opacity="0.32" />
+      <stop offset="65%" stop-color="#B23E56" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#C8A97E" stop-opacity="0.02" />
+    </linearGradient>
+
+    <!-- Silk Wave Gradient 2 -->
+    <linearGradient id="nlSilk2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF1F4" stop-opacity="0.03" />
+      <stop offset="40%" stop-color="#F2D0D8" stop-opacity="0.26" />
+      <stop offset="80%" stop-color="#8F3349" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#14080D" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Studio Blur Filters -->
+    <filter id="nlSoftBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="70" />
+    </filter>
+    <filter id="nlMedBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" />
+    </filter>
+  </defs>
+
+  <!-- 1. Rich Deep Studio Canvas -->
+  <rect width="1920" height="600" fill="url(#nlStudioSpotlight)" />
+
+  <!-- 2. Radiant Atmospheric Center Spotlight -->
+  <circle cx="960" cy="300" r="460" fill="url(#nlRoseBloom)" filter="url(#nlSoftBlur)" />
+  <circle cx="960" cy="270" r="280" fill="url(#nlGoldGlow)" filter="url(#nlSoftBlur)" />
+
+  <!-- Left flank ambiance -->
+  <circle cx="220" cy="380" r="260" fill="url(#nlRoseBloom)" filter="url(#nlSoftBlur)" opacity="0.6" />
+
+  <!-- Right flank ambiance -->
+  <circle cx="1700" cy="240" r="280" fill="url(#nlGoldGlow)" filter="url(#nlSoftBlur)" opacity="0.7" />
+
+  <!-- 3. Flowing Satin Silk Ribbons across width -->
+  <path
+    d="M -100 480 C 350 420, 680 180, 1100 240 C 1450 280, 1750 460, 2050 400"
+    stroke="url(#nlSilk1)"
+    stroke-width="56"
+    fill="none"
+    filter="url(#nlMedBlur)"
+    opacity="0.75"
+  />
+
+  <path
+    d="M -100 200 C 420 280, 840 450, 1280 360 C 1620 280, 1850 160, 2050 220"
+    stroke="url(#nlSilk2)"
+    stroke-width="48"
+    fill="none"
+    filter="url(#nlMedBlur)"
+    opacity="0.65"
+  />
+
+  <!-- Subtle shimmering filament hair-lines -->
+  <path
+    d="M 0 350 C 450 310, 850 210, 1250 250 C 1600 280, 1820 400, 1920 370"
+    stroke="#C8A97E"
+    stroke-opacity="0.22"
+    stroke-width="1.2"
+    fill="none"
+    stroke-dasharray="4 6"
+  />
+
+  <path
+    d="M 0 220 C 380 260, 780 390, 1180 320 C 1520 260, 1780 180, 1920 210"
+    stroke="#F2D0D8"
+    stroke-opacity="0.18"
+    stroke-width="1.2"
+    fill="none"
+  />
+
+  <!-- 4. Subtle Celestial Diamonds & Sparkles -->
+  <!-- Left group -->
+  <g transform="translate(320, 180)">
+    <path d="M 0 -12 Q 0 0 -12 0 Q 0 0 0 12 Q 0 0 12 0 Q 0 0 0 -12 Z" fill="#ECC68F" fill-opacity="0.45" />
+    <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" fill-opacity="0.8" />
+  </g>
+  <circle cx="260" cy="240" r="1.8" fill="#C8A97E" fill-opacity="0.5" />
+  <circle cx="380" cy="360" r="1.2" fill="#E5C79A" fill-opacity="0.4" />
+
+  <!-- Center-left group -->
+  <g transform="translate(680, 140)">
+    <path d="M 0 -8 Q 0 0 -8 0 Q 0 0 0 8 Q 0 0 8 0 Q 0 0 0 -8 Z" fill="#FCE4E8" fill-opacity="0.35" />
+  </g>
+  <circle cx="760" cy="450" r="1.5" fill="#C8A97E" fill-opacity="0.4" />
+
+  <!-- Center-right group -->
+  <g transform="translate(1260, 130)">
+    <path d="M 0 -9 Q 0 0 -9 0 Q 0 0 0 9 Q 0 0 9 0 Q 0 0 0 -9 Z" fill="#ECC68F" fill-opacity="0.4" />
+    <circle cx="0" cy="0" r="1.2" fill="#FFFFFF" fill-opacity="0.75" />
+  </g>
+  <circle cx="1180" cy="460" r="1.4" fill="#C8A97E" fill-opacity="0.35" />
+
+  <!-- Right group -->
+  <g transform="translate(1620, 360)">
+    <path d="M 0 -14 Q 0 0 -14 0 Q 0 0 0 14 Q 0 0 14 0 Q 0 0 0 -14 Z" fill="#ECC68F" fill-opacity="0.5" />
+    <circle cx="0" cy="0" r="1.8" fill="#FFFFFF" fill-opacity="0.9" />
+  </g>
+  <circle cx="1540" cy="220" r="1.6" fill="#FCE4E8" fill-opacity="0.45" />
+  <circle cx="1720" cy="160" r="1.2" fill="#C8A97E" fill-opacity="0.4" />
+</svg>

@@ -1,0 +1,44 @@
+'use client';
+
+/** Dark full-bleed banner for every inner page (keeps the glass header legible). */
+export default function PageHero({ eyebrow, title, intro, image = '/images/luxury_handmade_nails.jpg', children }) {
+  return (
+    <section className="relative h-[460px] sm:h-[500px] lg:h-[540px] w-full flex items-center justify-center overflow-hidden bg-[#1F171A] text-white">
+      {/* Background Visual - Synchronized 16:9 framing, locked to uniform height */}
+      <img
+        src={image}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
+      />
+
+      {/* Cinematic Dual Gradient + Radial Spotlight Scrim for 100% Intrinsic Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#140C0F]/95 via-black/60 to-black/75 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/65 via-black/25 to-transparent pointer-events-none" />
+
+      {/* Centered Editorial Content */}
+      <div className="relative z-10 container-x pt-28 sm:pt-32 pb-8 sm:pb-10 w-full flex flex-col items-center justify-center text-center my-auto">
+        <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center animate-rise">
+          {eyebrow && (
+            <span className="eyebrow eyebrow-light text-[#FCE4E8] tracking-[0.2em] sm:tracking-[0.32em] font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] mb-1">
+              {eyebrow}
+            </span>
+          )}
+          <h1
+            className="display display-light text-[28px] sm:text-5xl lg:text-6xl mt-3 font-normal text-balance text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.98)] drop-shadow-[0_6px_32px_rgba(0,0,0,0.9)]"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+          {intro && (
+            <p className="mt-5 max-w-2xl text-xs sm:text-sm md:text-base text-white/95 font-light leading-relaxed text-pretty drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+              {intro}
+            </p>
+          )}
+          {children && (
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              {children}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}

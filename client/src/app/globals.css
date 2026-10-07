@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+/* ==========================================================
+   X-ON DESIGN SYSTEM
+   European & American high-end luxury editorial aesthetic.
+   Inspired by Bellaire Travels + X-ON sharp card geometry.
+   ========================================================== */
+
+@theme {
+  --color-ink: #1f171a;
+  --color-ink-soft: #5e4b52;
+  --color-muted: #8a7479;
+  --color-rose: #8f3349;
+  --color-rose-deep: #6f2436;
+  --color-blush: #fce4e8;
+  --color-petal: #fff0f3;
+  --color-cream: #fdf8f9;
+  --color-line: #eed9de;
+  --color-champagne: #c8a97e;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background-color: #FAF1F4;
+    color: #1f171a;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--serif);
+  }
+
+  /* Sharp geometry rule — globally neutralise rounding except avatars/dots */
+  button, input, select, textarea { border-radius: 0; }
+
+  /* Enforce hand pointer cursor on ALL links, buttons, and interactive triggers */
+  a,
+  a *,
+  button,
+  button *,
+  [role="button"],
+  [role="button"] *,
+  [type="button"],
+  [type="button"] *,
+  [type="submit"],
+  [type="submit"] *,
+  [type="reset"],
+  [type="reset"] *,
+  select,
+  summary,
+  summary *,
+  label[for],
+  label[for] *,
+  .btn,
+  .btn *,
+  [tabindex="0"] {
+    cursor: pointer !important;
+  }
+
+  button:disabled,
+  button:disabled *,
+  [disabled],
+  .disabled {
+    cursor: not-allowed !important;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1680px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 640px) { .container-x { padding-inline: 2.5rem; } }
+  @media (min-width: 1024px) { .container-x { padding-inline: 4rem; } }
+
+  .section { padding-block: 2.5rem; }
+  @media (min-width: 640px) { .section { padding-block: 3rem; } }
+  @media (min-width: 1024px) { .section { padding-block: 3.5rem; } }
+
+  /* Eyebrow label: "● WELCOME TO X-ON" */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-rose);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    transform: rotate(45deg);
+  }
+  .eyebrow-light { 
+    color: #fce4e8; 
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  }
+
+  .display {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .display em {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-rose);
+  }
+  .display-light {
+    color: #ffffff;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 4px 28px rgba(0, 0, 0, 0.85);
+  }
+  .display-light em { 
+    color: #fce4e8; 
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+  }
+
+  /* Bellaire-style CTA: label + arrow tile */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.55rem 0.55rem 0.55rem 1.6rem;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn .btn-arrow {
+    width: 2.1rem;
+    height: 2.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+  }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  .btn-primary { background: var(--color-rose); color: #fff; }
+  .btn-primary .btn-arrow { background: #fff; color: var(--color-rose); }
+  .btn-primary:hover { background: var(--color-rose-deep); }
+
+  .btn-light { background: #fff; color: var(--color-ink); }
+  .btn-light .btn-arrow { background: var(--color-rose); color: #fff; }
+  .btn-light:hover { background: var(--color-petal); }
+
+  .btn-glass {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+  }
+  .btn-glass .btn-arrow { background: rgba(255, 255, 255, 0.18); }
+  .btn-glass:hover { background: rgba(255, 255, 255, 0.22); }
+
+  .btn-outline {
+    border: 1px solid var(--color-rose);
+    color: var(--color-rose);
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(143, 51, 73, 0.08);
+  }
+  .btn-outline .btn-arrow {
+    background: var(--color-rose);
+    color: #ffffff;
+  }
+  .btn-outline:hover {
+    background: var(--color-rose);
+    color: #ffffff;
+    border-color: var(--color-rose);
+    box-shadow: 0 4px 14px rgba(143, 51, 73, 0.2);
+  }
+  .btn-outline:hover .btn-arrow {
+    background: #ffffff;
+    color: var(--color-rose);
+  }
+
+  /* Minimalist Luxury Pink Canvas (Nền hồng dịu nhẹ thanh lịch, chỉ điểm xuyết họa tiết ở vài góc) */
+  .bg-petal-pattern,
+  .bg-luxury-pattern,
+  .bg-silk-pattern {
+    background-color: #FAF1F4;
+    background-image: url('/images/minimal-accents.svg');
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 1600px auto;
+  }
+
+  /* Universal Logo Prominence Utilities: Crystal-clear contrast on ANY background */
+  .logo-prominent-dark {
+    filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 16px rgba(252, 228, 232, 0.8)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
+  }
+
+  .logo-prominent-light {
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.9)) drop-shadow(0 2px 8px rgba(143, 51, 73, 0.25)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    transition: color 0.25s;
+  }
+  .link-arrow:hover { color: var(--color-rose); }
+
+  .glass {
+    background: rgba(20, 14, 16, 0.42);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .field {
+    width: 100%;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    padding: 0.85rem 1rem;
+    font-size: 13px;
+    color: var(--color-ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field:focus { border-color: var(--color-rose); }
+  .field-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    margin-bottom: 0.4rem;
+  }
+
+  /* Mobile comfort: full-width stacked CTAs + 16px form text (no iOS auto-zoom) */
+  @media (max-width: 639px) {
+    .btn { width: 100%; justify-content: center; }
+    input, select, textarea { font-size: 16px; }
+  }
+}
+
+/* Reveal-on-load animation */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 38s linear infinite; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.animate-fadeIn { animation: fadeIn 0.3s ease both; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #faeff1; }
+::-webkit-scrollbar-thumb { background: #dfb6be; }
+::-webkit-scrollbar-thumb:hover { background: #c88a96; }
+
+/* Hide Next.js dev indicators & corner badges */
+nextjs-portal,
+nextjs-portal *,
+[data-nextjs-dev-overlay-root],
+[data-nextjs-dev-overlay-root] *,
+[data-next-badge],
+[data-nextjs-toast],
+div[class*="nextjs-toast"],
+#next-logo-container,
+button[aria-label*="Next.js"],
+button[aria-label*="Issue"],
+button[aria-label*="Turbopack"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

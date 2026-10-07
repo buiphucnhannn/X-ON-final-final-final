@@ -1,0 +1,14 @@
+{
+  "name": "fullstack-next-express-mongo",
+  "version": "1.0.0",
+  "description": "Fullstack project with Next.js, Express.js (Service-Repository pattern), and MongoDB",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "install:all": "npm install && npm --prefix client install && npm --prefix server install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
