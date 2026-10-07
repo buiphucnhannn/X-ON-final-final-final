@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${cormorant.variable} ${montserrat.variable} h-full w-full max-w-full overflow-x-hidden`}
+      className={`${cormorant.variable} ${montserrat.variable} w-full`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full w-full max-w-full overflow-x-hidden bg-petal-pattern text-[#1F171A] font-sans antialiased selection:bg-[#FCE4E8] selection:text-[#8F3349]">
+      <body className="min-h-screen w-full bg-petal-pattern text-[#1F171A] font-sans antialiased selection:bg-[#FCE4E8] selection:text-[#8F3349]">
         <ScrollRevealObserver />
         {children}
       </body>

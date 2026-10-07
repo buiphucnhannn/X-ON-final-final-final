@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CartDrawer from '../../components/CartDrawer';
@@ -30,12 +31,12 @@ export default function AboutPage() {
           intro="X-On was born from a singular conviction: high-fashion salon nail craft should be instant, damage-free, and accessible without compromising on couture luxury."
           image="/images/hero_about.jpg"
         >
-          <a href="/shop" className="btn btn-light">
+          <Link href="/shop" className="btn btn-light">
             Shop Catalog <span className="btn-arrow">→</span>
-          </a>
-          <a href="/wholesale-signup" className="btn btn-glass">
+          </Link>
+          <Link href="/wholesale-signup" className="btn btn-glass">
             Wholesale Inquiries <span className="btn-arrow">→</span>
-          </a>
+          </Link>
         </PageHero>
 
         {/* Brand Story & Mission */}
@@ -63,18 +64,18 @@ export default function AboutPage() {
                 </div>
 
                 <div className="pt-4 flex flex-wrap gap-4">
-                  <a
+                  <Link
                     href="/shop"
                     className="px-8 py-3.5 bg-[#8F3349] hover:bg-[#732638] text-white text-xs tracking-[0.25em] uppercase font-bold transition-all rounded-none shadow-sm"
                   >
                     Explore Catalog
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/wholesale-signup"
                     className="px-8 py-3.5 bg-white border border-[#EBD5DB] hover:border-[#8F3349] text-[#1F171A] text-xs tracking-[0.25em] uppercase font-bold transition-all rounded-none"
                   >
                     Wholesale Inquiries
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -195,12 +196,12 @@ export default function AboutPage() {
 
               {/* Luxury CTAs */}
               <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5">
-                <a
+                <Link
                   href="/contact-us"
                   className="px-8 py-3.5 bg-[#8F3349] hover:bg-[#732638] text-white text-xs tracking-[0.25em] uppercase font-bold transition-all rounded-none shadow-md flex items-center gap-2 cursor-pointer"
                 >
                   Schedule a Studio Visit <span>→</span>
-                </a>
+                </Link>
                 <a
                   href="https://maps.google.com/?q=3168+Bill+Beck+Blvd,+Kissimmee,+FL+34744"
                   target="_blank"

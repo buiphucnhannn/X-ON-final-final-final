@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Reveal from './ui/Reveal';
 
 const COLS = [
@@ -32,13 +35,25 @@ const COLS = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className="bg-[#1F171A] text-white/80">
       <Reveal variant="up">
         <div className="container-x pt-12 sm:pt-20 pb-10">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 lg:gap-12 pb-14 border-b border-white/10">
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
-            <Link href="/" className="inline-flex items-center group" aria-label="X-On Home">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="inline-flex items-center group cursor-pointer"
+              aria-label="X-On Home"
+            >
               <img
                 src="/images/logo.png"
                 alt="X-On logo"

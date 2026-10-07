@@ -86,7 +86,17 @@ export default function Header({ cartCount = 0, onOpenCart }) {
           }`}
         >
           {/* Official Transparent Logo */}
-          <Link href="/" className="relative flex items-center shrink-0 group pl-1 py-0.5" aria-label="X-On Home">
+          <Link
+            href="/"
+            onClick={(e) => {
+              if (pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="relative flex items-center shrink-0 group pl-1 py-0.5 cursor-pointer"
+            aria-label="X-On Home"
+          >
             {!scrolled && (
               <div className="absolute inset-0 bg-white/20 blur-sm rounded-full pointer-events-none scale-110 -z-10" />
             )}
@@ -233,7 +243,13 @@ export default function Header({ cartCount = 0, onOpenCart }) {
             {/* Home link for mobile users */}
             <Link
               href="/"
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => {
+                setMobileOpen(false);
+                if (pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
               className={`block py-2.5 text-[11px] tracking-[0.18em] uppercase ${
                 scrolled ? 'border-b border-[#F0D5DC] text-[#3B292F] hover:text-[#8F3349]' : 'border-b border-white/10 text-white/90'
               } ${pathname === '/' ? (scrolled ? 'text-[#8F3349] font-bold' : 'text-[#F2D0D8] font-bold') : ''}`}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { scrollToSection } from '../lib/scroll';
 
 export default function Hero() {
@@ -71,12 +72,12 @@ export default function Hero() {
           Handmade press-on nails and carefully selected nail essentials — designed with quality, style, and performance in mind for nail lovers and professionals alike.
         </p>
         <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 animate-rise delay-3">
-          <a href="/shop" className="btn btn-light shadow-lg py-3 px-6 sm:px-8 text-xs sm:text-sm">
+          <Link href="/shop" className="btn btn-light shadow-lg py-3 px-6 sm:px-8 text-xs sm:text-sm">
             Shop Press-On Nails <span className="btn-arrow">→</span>
-          </a>
-          <a href="/shop?type=essentials" className="btn btn-glass py-3 px-6 sm:px-8 text-xs sm:text-sm">
+          </Link>
+          <Link href="/shop?type=essentials" className="btn btn-glass py-3 px-6 sm:px-8 text-xs sm:text-sm">
             Nail Essentials <span className="btn-arrow">→</span>
-          </a>
+          </Link>
         </div>
       </div>
 

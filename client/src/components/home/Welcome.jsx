@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Welcome() {
   return (
     <section id="welcome" className="section bg-petal-pattern py-10 sm:py-14">
@@ -26,9 +28,9 @@ export default function Welcome() {
             ))}
           </div>
 
-          <a href="/about" className="btn btn-outline mt-10">
+          <Link href="/about" className="btn btn-outline mt-10">
             Our Story <span className="btn-arrow">→</span>
-          </a>
+          </Link>
         </div>
 
         {/* Editorial collage */}
