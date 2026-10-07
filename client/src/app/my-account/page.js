@@ -86,7 +86,7 @@ export default function MyAccountPage() {
         )}
 
         {/* Form Container */}
-        <div className="max-w-md mx-auto bg-white border border-[#EBD5DB] p-8 sm:p-10 shadow-sm rounded-none">
+        <div className="max-w-md mx-auto bg-white border border-[#EBD5DB] p-5 sm:p-10 shadow-sm rounded-none">
           {activeTab === 'login' && (
             <form onSubmit={handleLogin} className="space-y-5">
               <div className="space-y-1.5">

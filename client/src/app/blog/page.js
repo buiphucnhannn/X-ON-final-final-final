@@ -92,7 +92,7 @@ export default function BlogPage() {
                   </div>
                 </div>
 
-                <div className="p-8 space-y-4 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-8 space-y-4 flex-1 flex flex-col justify-between">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 text-[11px] text-[#99878E] font-mono">
                       <span>{post.date}</span>

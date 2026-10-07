@@ -26,8 +26,8 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section className="bg-petal-pattern py-10 sm:py-14 text-[#1F171A]">
-      <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section className="bg-petal-pattern py-10 sm:py-14 text-[#1F171A] overflow-hidden">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
           <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#8F3349] font-bold">

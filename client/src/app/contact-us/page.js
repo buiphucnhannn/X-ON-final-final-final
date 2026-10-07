@@ -120,7 +120,7 @@ export default function ContactUsPage() {
               </Reveal>
 
               {/* Right Column: Contact Inquiry Form Card */}
-              <Reveal variant="right" className="lg:col-span-7 bg-white border border-[#EBD5DB] p-8 sm:p-10 shadow-sm flex flex-col justify-between h-full">
+              <Reveal variant="right" className="lg:col-span-7 bg-white border border-[#EBD5DB] p-5 sm:p-10 shadow-sm flex flex-col justify-between h-full">
                 {submitted ? (
                   <div className="py-10 text-center space-y-4 my-auto">
                     <span className="text-4xl text-[#8F3349]">✦</span>

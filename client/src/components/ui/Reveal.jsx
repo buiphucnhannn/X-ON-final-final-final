@@ -8,16 +8,16 @@ import { useEffect, useRef, useState } from 'react';
  * Variants: up | down | left | right | zoom | zoomout | blur | flip | fade | tilt
  */
 const HIDDEN = {
-  up: 'opacity-0 translate-y-10',
-  down: 'opacity-0 -translate-y-10',
-  left: 'opacity-0 -translate-x-12',
-  right: 'opacity-0 translate-x-12',
-  zoom: 'opacity-0 scale-90',
-  zoomout: 'opacity-0 scale-110',
-  blur: 'opacity-0 blur-md scale-[0.98]',
-  flip: 'opacity-0 [transform:perspective(900px)_rotateX(12deg)_translateY(28px)]',
+  up: 'opacity-0 translate-y-8',
+  down: 'opacity-0 -translate-y-8',
+  left: 'opacity-0 translate-y-6 sm:translate-y-0 sm:-translate-x-10',
+  right: 'opacity-0 translate-y-6 sm:translate-y-0 sm:translate-x-10',
+  zoom: 'opacity-0 scale-95',
+  zoomout: 'opacity-0 scale-95 sm:scale-105',
+  blur: 'opacity-0 blur-sm scale-[0.98]',
+  flip: 'opacity-0 [transform:perspective(900px)_rotateX(10deg)_translateY(20px)]',
   fade: 'opacity-0',
-  tilt: 'opacity-0 [transform:perspective(1000px)_rotateZ(1.5deg)_translateY(24px)]',
+  tilt: 'opacity-0 translate-y-6 sm:[transform:perspective(1000px)_rotateZ(1.5deg)_translateY(24px)]',
 };
 
 const VISIBLE =
@@ -55,7 +55,7 @@ export default function Reveal({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms`, transitionDuration: `${duration}ms` }}
-      className={`transition-all ease-out ${visible ? VISIBLE : HIDDEN[variant] || HIDDEN.up} ${className}`}
+      className={`w-full max-w-full overflow-x-clip transition-all ease-out ${visible ? VISIBLE : HIDDEN[variant] || HIDDEN.up} ${className}`}
     >
       {children}
     </div>

@@ -87,14 +87,18 @@ export default function TechnologyFeature() {
         </div>
 
         {/* Comparison Grid (Sharp Editorial Table in bright palette) */}
-        <div className="mb-12 bg-white border border-[#EBD5DB] p-6 sm:p-10 rounded-none shadow-sm">
-          <div className="flex items-center justify-between border-b border-[#F2DEE3] pb-5 mb-6">
-            <h3 className="font-serif text-2xl text-[#1F171A]">The Truth In Comparison</h3>
+        <div className="mb-12 bg-white border border-[#EBD5DB] p-4 sm:p-10 rounded-none shadow-sm">
+          <div className="flex items-center justify-between border-b border-[#F2DEE3] pb-5 mb-4">
+            <h3 className="font-serif text-xl sm:text-2xl text-[#1F171A]">The Truth In Comparison</h3>
             <span className="text-[10px] tracking-[0.2em] uppercase text-[#8F3349] font-bold">Standard Salon vs X-On</span>
           </div>
 
+          <div className="sm:hidden text-center text-[10px] text-[#8F3349] font-mono tracking-wider mb-2">
+            ← Swipe horizontally to view full metrics →
+          </div>
+
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
+            <table className="w-full min-w-[540px] text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-[#F2DEE3] text-[10px] tracking-[0.2em] uppercase text-[#887077]">
                   <th className="py-4 font-semibold">Dimension</th>

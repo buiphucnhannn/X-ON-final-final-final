@@ -34,7 +34,7 @@ export default function CommunityWall() {
 
   return (
     <section className="bg-[#FAF2F4] py-16 border-b border-[#F0D5DC] text-[#1F171A]">
-      <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
           <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#8F3349] font-bold">

@@ -13,10 +13,17 @@ export default function SizingModal({ isOpen, onClose }) {
     if (!isOpen) return;
     const original = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.body.style.overflow = original;
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -90,44 +97,55 @@ export default function SizingModal({ isOpen, onClose }) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/65 backdrop-blur-sm animate-fadeIn cursor-pointer"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-5 bg-black/70 backdrop-blur-sm animate-fadeIn cursor-pointer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Nail Sizing and Shape Guide"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-5xl bg-white border border-[#EBD5DB] shadow-2xl p-6 sm:p-10 max-h-[92vh] overflow-y-auto rounded-none text-[#1F171A] cursor-default"
+        className="relative w-full max-w-5xl bg-white border border-[#EBD5DB] shadow-2xl flex flex-col max-h-[92vh] sm:max-h-[90vh] rounded-none text-[#1F171A] cursor-default overflow-hidden"
       >
-        {/* Close Button */}
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 text-xl text-[#7A636A] hover:text-[#8F3349] p-2 cursor-pointer transition-colors"
-          aria-label="Close modal"
-        >
-          ✕
-        </button>
+        {/* Sticky Header Bar — guaranteed 100% accessible close button from any scroll point */}
+        <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 sm:px-8 sm:py-4 border-b border-[#F0D5DC] flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <img
+              src="/images/logo.png"
+              alt="X-On logo"
+              className="h-6 sm:h-8 w-auto object-contain shrink-0 logo-prominent-light"
+            />
+            <div className="min-w-0">
+              <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#8F3349] font-bold block truncate">
+                Precision Fit & Silhouette Guide
+              </span>
+            </div>
+          </div>
 
-        {/* Modal Header */}
-        <div className="border-b border-[#F0D5DC] pb-5 mb-6 flex items-start gap-4">
-          <img
-            src="/images/logo.png"
-            alt="X-On logo"
-            className="h-9 sm:h-11 w-auto object-contain shrink-0 mt-1 logo-prominent-light"
-          />
-          <div>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-[#8F3349] font-bold block">
-              X-On Precision Fit & Silhouette Guide
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#1F171A] font-medium mt-1 text-balance">
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF2F4] hover:bg-[#8F3349] text-[#7A636A] hover:text-white border border-[#EBD5DB] text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer rounded-none shadow-xs shrink-0"
+            aria-label="Close modal"
+          >
+            <span>Close</span>
+            <span className="text-sm font-bold leading-none">✕</span>
+          </button>
+        </div>
+
+        {/* Scrollable Body Content */}
+        <div className="overflow-y-auto p-4 sm:p-8 overscroll-contain flex-1">
+          {/* Modal Header Intro */}
+          <div className="border-b border-[#F0D5DC] pb-5 mb-6">
+            <h2 className="font-serif text-2xl sm:text-4xl text-[#1F171A] font-medium text-balance">
               Nail Sizing & Shape Anatomy
             </h2>
-            <p className="text-xs text-[#6B555D] font-light mt-1.5 max-w-lg text-pretty">
+            <p className="text-xs text-[#6B555D] font-light mt-1.5 max-w-2xl text-pretty leading-relaxed">
               Measure your bespoke millimeters and explore our 6 signature salon silhouettes for an undetectable, tailor-made finish.
             </p>
           </div>
-        </div>
 
-        {/* Top Segmented Navigation Tabs */}
-        <div className="flex border-b border-[#ECD6DC] mb-7 gap-2 sm:gap-6 overflow-x-auto">
+          {/* Top Segmented Navigation Tabs */}
+          <div className="flex border-b border-[#ECD6DC] mb-7 gap-2 sm:gap-6 overflow-x-auto pb-1">
           <button
             type="button"
             onClick={() => setActiveTab('fingers')}
@@ -452,6 +470,7 @@ export default function SizingModal({ isOpen, onClose }) {
           >
             I Got My Size, Return to Shop
           </button>
+        </div>
         </div>
       </div>
     </div>

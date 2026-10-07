@@ -165,7 +165,7 @@ export default function AboutPage() {
             <div className="absolute inset-x-0 bottom-0 h-10 sm:h-14 bg-gradient-to-t from-[#FAF1F4] to-transparent pointer-events-none z-10" />
 
             {/* Focused Editorial Luxury Card (Giữ chữ sắc nét, dễ đọc trên nền ảnh thực tế) */}
-            <div className="relative z-20 max-w-2xl mx-auto px-6 sm:px-10 py-10 sm:py-12 bg-white/88 backdrop-blur-md border border-[#EBD5DB] shadow-[0_12px_40px_rgba(0,0,0,0.08)] text-center space-y-5 rounded-none m-4 sm:m-6">
+            <div className="relative z-20 max-w-2xl mx-auto px-4 sm:px-10 py-8 sm:py-12 bg-white/92 backdrop-blur-md border border-[#EBD5DB] shadow-[0_12px_40px_rgba(0,0,0,0.08)] text-center space-y-5 rounded-none m-2 sm:m-6">
               <span className="block text-[10px] md:text-xs tracking-[0.32em] uppercase text-[#8F3349] font-semibold">
                 ✦ Florida Studio & Flagship Showroom ✦
               </span>

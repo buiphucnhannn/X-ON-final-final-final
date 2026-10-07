@@ -77,7 +77,7 @@ export default function SizingChartPage() {
         {/* Standard Size Table (XS / S / M / L) */}
         <Reveal variant="left">
         <section id="size-table" className="py-10 sm:py-14">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16">
             <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#8F3349] font-bold">
                 Millimeter Standards
@@ -87,8 +87,13 @@ export default function SizingChartPage() {
               </h2>
             </div>
 
+            {/* Mobile swipe hint */}
+            <div className="sm:hidden text-center text-[10px] text-[#8F3349] font-mono tracking-wider mb-2">
+              ← Swipe table horizontally to view all finger millimeter sizes →
+            </div>
+
             <div className="overflow-x-auto bg-white border border-[#EBD5DB] shadow-sm">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full min-w-[640px] text-left border-collapse text-xs">
                 <thead>
                   <tr className="bg-[#FAF2F4] border-b border-[#EBD5DB] text-[10px] tracking-widest uppercase text-[#554047]">
                     <th className="py-3 sm:py-4 px-3 sm:px-6 font-bold whitespace-nowrap">Size</th>
@@ -136,7 +141,7 @@ export default function SizingChartPage() {
         {/* Silhouette Anatomy Guide */}
         <Reveal variant="right">
         <section className="py-10 sm:py-14">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16">
             <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#8F3349] font-bold">
                 Silhouettes & Profiles

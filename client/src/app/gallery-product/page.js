@@ -297,6 +297,17 @@ export default function GalleryProductPage() {
                     <span className="font-mono text-[#8F3349] font-bold text-sm">{item.price}</span>
                   </div>
                   <p className="text-[10px] text-[#99878E] font-mono mt-1">Available Sizes: {item.sizes}</p>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openQuickView(item);
+                    }}
+                    className="w-full mt-3.5 py-2.5 bg-[#FFF0F3] hover:bg-[#8F3349] text-[#7A2A3E] hover:text-white text-[10px] tracking-[0.2em] uppercase font-bold border border-[#F2D0D8] hover:border-[#8F3349] transition-all rounded-none cursor-pointer"
+                  >
+                    Quick View Details ✦
+                  </button>
                 </div>
               </div>
             </div>

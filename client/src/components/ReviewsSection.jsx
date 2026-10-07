@@ -37,7 +37,7 @@ export default function ReviewsSection() {
         </div>
 
         <div className="lg:col-span-8">
-          <div className="glass p-8 sm:p-10 lg:p-12 min-h-[420px] sm:min-h-[370px] lg:min-h-[340px] flex flex-col justify-between">
+          <div className="glass p-5 sm:p-10 lg:p-12 min-h-[340px] sm:min-h-[320px] flex flex-col justify-between">
             <div className="flex items-center justify-between shrink-0">
               <div className="text-[#E9C27A] tracking-[0.2em] text-sm">{'★'.repeat(r.rating)}</div>
               <span className="text-[10px] tracking-[0.25em] text-white/50 uppercase font-mono">

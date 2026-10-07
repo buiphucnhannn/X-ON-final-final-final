@@ -56,9 +56,14 @@ export default function ComparisonSection() {
           </p>
         </div>
 
+        {/* Mobile Swipe Indicator */}
+        <div className="sm:hidden text-center text-[10px] text-[#8F3349] font-mono tracking-wider mb-2">
+          ← Swipe horizontally to compare →
+        </div>
+
         {/* Comparison Table / Matrix */}
         <div className="overflow-x-auto bg-[#FAF2F4] border border-[#EBD5DB] shadow-md rounded-none">
-          <table className="w-full text-left border-collapse text-xs sm:text-sm">
+          <table className="w-full min-w-[620px] text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-[#EBD5DB] text-[10px] sm:text-xs tracking-widest uppercase">
                 <th className="py-5 px-6 font-bold text-[#554047] w-1/3">Key Consideration</th>
@@ -76,9 +81,11 @@ export default function ComparisonSection() {
                   <td className="py-4.5 px-6 font-semibold text-[#1F171A]">
                     {r.feature}
                   </td>
-                  <td className="py-4.5 px-6 bg-black/[0.02] text-[#7A636A] flex items-center gap-2">
-                    <span className="text-red-500 font-bold">✕</span>
-                    <span>{r.salon}</span>
+                  <td className="py-4.5 px-6 bg-black/[0.02] text-[#7A636A]">
+                    <div className="flex items-center gap-2">
+                      <span className="text-red-500 font-bold">✕</span>
+                      <span>{r.salon}</span>
+                    </div>
                   </td>
                   <td className="py-4.5 px-6 bg-[#FFF0F3] font-medium text-[#8F3349]">
                     <div className="flex items-center justify-center gap-2">

@@ -7,7 +7,6 @@ import CartDrawer from '../../components/CartDrawer';
 import SizingModal from '../../components/SizingModal';
 import PageHero from '../../components/ui/PageHero';
 import Reveal from '../../components/ui/Reveal';
-import SectionAccent from '../../components/ui/SectionAccent';
 import { scrollToSection } from '../../lib/scroll';
 
 export default function GalleryComingSoonPage() {
@@ -22,8 +21,15 @@ export default function GalleryComingSoonPage() {
     if (!selectedTeaser) return;
     const original = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedTeaser(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       document.body.style.overflow = original;
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedTeaser]);
 
@@ -101,11 +107,11 @@ export default function GalleryComingSoonPage() {
           </button>
         </PageHero>
 
-        <div className="container-x py-12">
+        <div className="container-x pt-12 pb-8 sm:pb-10">
 
         {/* Teaser Cards */}
         <Reveal variant="up">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
           {teasers.map((t) => (
             <div
               key={t.id}
@@ -173,11 +179,7 @@ export default function GalleryComingSoonPage() {
         </Reveal>
         </div>
 
-        {/* Minimalist Background Flourish */}
-        <SectionAccent variant="center" />
-
-        {/* Full-bleed VIP Early Access Waitlist Section */}
-        <section id="waitlist-section" className="relative w-full overflow-hidden bg-[#160A0F] text-white py-12 sm:py-14 mt-4">
+        <section id="waitlist-section" className="relative w-full overflow-hidden bg-[#160A0F] text-white py-10 sm:py-12">
           {/* Full-bleed Luxury Backdrop */}
           <img
             src="/images/newsletter-luxury-backdrop.svg"
@@ -245,84 +247,107 @@ export default function GalleryComingSoonPage() {
       {selectedTeaser && (
         <div
           onClick={() => setSelectedTeaser(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn cursor-pointer"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/70 backdrop-blur-sm animate-fadeIn cursor-pointer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Backstage Concept Preview"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-4xl bg-white border border-[#EBD5DB] shadow-2xl p-6 sm:p-10 max-h-[90vh] overflow-y-auto rounded-none text-[#1F171A] cursor-default"
+            className="relative w-full max-w-4xl bg-white border border-[#EBD5DB] shadow-2xl flex flex-col max-h-[92vh] sm:max-h-[90vh] rounded-none text-[#1F171A] cursor-default overflow-hidden"
           >
-            <button
-              onClick={() => setSelectedTeaser(null)}
-              className="absolute top-4 right-4 text-xl text-[#7A636A] hover:text-[#1F171A] p-2 cursor-pointer"
-              aria-label="Close Preview"
-            >
-              ✕
-            </button>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Full-Color High-Res Image Preview */}
-              <div className="relative aspect-[4/5] w-full bg-[#FAF2F4] overflow-hidden border border-[#EBD5DB]">
+            {/* Sticky Header Bar — guaranteed 100% accessible close button */}
+            <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md px-4 py-3 sm:px-8 sm:py-3.5 border-b border-[#F0D5DC] flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <img
-                  src={selectedTeaser.image}
-                  alt={selectedTeaser.title}
-                  className="w-full h-full object-cover"
+                  src="/images/logo.png"
+                  alt="X-On logo"
+                  className="h-6 sm:h-7 w-auto object-contain logo-prominent-light shrink-0"
                 />
-                <div className="absolute top-3 left-3 bg-black/85 text-white text-[9px] tracking-[0.2em] uppercase px-3 py-1 font-mono font-bold shadow-sm">
-                  {selectedTeaser.badge}
-                </div>
-                <div className="absolute bottom-3 right-3 bg-[#FFF0F3] border border-[#F2D0D8] text-[#8F3349] px-3 py-1 text-[10px] tracking-widest uppercase font-bold font-mono">
-                  {selectedTeaser.releaseDate}
-                </div>
+                <span className="w-px h-3.5 bg-[#EBD5DB]" aria-hidden="true" />
+                <span className="text-[10px] sm:text-[11px] tracking-[0.2em] text-[#8F3349] uppercase font-bold truncate">
+                  Concept Preview
+                </span>
               </div>
 
-              {/* Design Specifications & Reservation Form */}
-              <div className="space-y-4">
-                <span className="text-[10px] tracking-[0.28em] text-[#9E3F55] uppercase font-bold block">
-                  ✦ Backstage Concept Preview ✦
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl text-[#1F171A] font-normal leading-tight">
-                  {selectedTeaser.title}
-                </h2>
-                <p className="text-xs text-[#5E4B52] font-light leading-relaxed">
-                  {selectedTeaser.fullDescription}
-                </p>
+              <button
+                type="button"
+                onClick={() => setSelectedTeaser(null)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF2F4] hover:bg-[#8F3349] text-[#7A636A] hover:text-white border border-[#EBD5DB] text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer rounded-none shadow-xs shrink-0"
+                aria-label="Close Preview"
+              >
+                <span>Close</span>
+                <span className="text-sm font-bold leading-none">✕</span>
+              </button>
+            </div>
 
-                <div className="py-3 border-y border-[#F0D5DC] space-y-2 text-xs">
-                  <div className="flex justify-between">
-                    <span className="text-[#8A7479]">Target Silhouettes:</span>
-                    <strong className="text-[#1F171A]">{selectedTeaser.silhouette}</strong>
+            {/* Scrollable Body Content */}
+            <div className="overflow-y-auto p-4 sm:p-8 overscroll-contain flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start md:items-center">
+                {/* Full-Color High-Res Image Preview */}
+                <div className="relative aspect-[4/3] sm:aspect-[4/5] w-full max-h-[260px] sm:max-h-none bg-[#FAF2F4] overflow-hidden border border-[#EBD5DB]">
+                  <img
+                    src={selectedTeaser.image}
+                    alt={selectedTeaser.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-3 bg-black/85 text-white text-[9px] tracking-[0.2em] uppercase px-3 py-1 font-mono font-bold shadow-sm">
+                    {selectedTeaser.badge}
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-[#8A7479]">Artisan Benchmark:</span>
-                    <strong className="text-[#8F3349] font-mono">{selectedTeaser.craftTime}</strong>
+                  <div className="absolute bottom-3 right-3 bg-[#FFF0F3] border border-[#F2D0D8] text-[#8F3349] px-3 py-1 text-[10px] tracking-widest uppercase font-bold font-mono">
+                    {selectedTeaser.releaseDate}
                   </div>
                 </div>
 
-                {teaserReserved ? (
-                  <div className="p-4 bg-[#FFF0F3] border border-[#8F3349] text-[#8F3349] text-xs font-bold uppercase tracking-wider text-center animate-fadeIn">
-                    ✓ Private Allocation Reserved! You are first in line for this drop.
-                  </div>
-                ) : (
-                  <form onSubmit={handleTeaserReserve} className="space-y-3 pt-2">
-                    <label className="text-[10px] uppercase tracking-wider text-[#554047] font-bold block">
-                      Request Priority Allocation Alert:
-                    </label>
-                    <div className="flex gap-2">
-                      <input
-                        type="email"
-                        required
-                        placeholder="Enter your VIP email..."
-                        className="flex-1 bg-[#FAF2F4] border border-[#EBD5DB] text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#8F3349]"
-                      />
-                      <button
-                        type="submit"
-                        className="px-6 py-3 bg-[#8F3349] hover:bg-[#732638] text-white text-xs uppercase tracking-widest font-bold transition-all rounded-none cursor-pointer whitespace-nowrap"
-                      >
-                        Reserve
-                      </button>
+                {/* Design Specifications & Reservation Form */}
+                <div className="space-y-4">
+                  <span className="text-[10px] tracking-[0.28em] text-[#9E3F55] uppercase font-bold block">
+                    ✦ Backstage Concept Preview ✦
+                  </span>
+                  <h2 className="font-serif text-2xl sm:text-4xl text-[#1F171A] font-normal leading-tight">
+                    {selectedTeaser.title}
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#5E4B52] font-light leading-relaxed">
+                    {selectedTeaser.fullDescription}
+                  </p>
+
+                  <div className="py-3 border-y border-[#F0D5DC] space-y-2 text-xs">
+                    <div className="flex justify-between">
+                      <span className="text-[#8A7479]">Target Silhouettes:</span>
+                      <strong className="text-[#1F171A]">{selectedTeaser.silhouette}</strong>
                     </div>
-                  </form>
-                )}
+                    <div className="flex justify-between">
+                      <span className="text-[#8A7479]">Artisan Benchmark:</span>
+                      <strong className="text-[#8F3349] font-mono">{selectedTeaser.craftTime}</strong>
+                    </div>
+                  </div>
+
+                  {teaserReserved ? (
+                    <div className="p-4 bg-[#FFF0F3] border border-[#8F3349] text-[#8F3349] text-xs font-bold uppercase tracking-wider text-center animate-fadeIn">
+                      ✓ Private Allocation Reserved! You are first in line for this drop.
+                    </div>
+                  ) : (
+                    <form onSubmit={handleTeaserReserve} className="space-y-3 pt-2">
+                      <label className="text-[10px] uppercase tracking-wider text-[#554047] font-bold block">
+                        Request Priority Allocation Alert:
+                      </label>
+                      <div className="flex gap-2">
+                        <input
+                          type="email"
+                          required
+                          placeholder="Enter your VIP email..."
+                          className="flex-1 bg-[#FAF2F4] border border-[#EBD5DB] text-xs px-4 py-3 rounded-none focus:outline-none focus:border-[#8F3349]"
+                        />
+                        <button
+                          type="submit"
+                          className="px-6 py-3 bg-[#8F3349] hover:bg-[#732638] text-white text-xs uppercase tracking-widest font-bold transition-all rounded-none cursor-pointer whitespace-nowrap"
+                        >
+                          Reserve
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
               </div>
             </div>
           </div>

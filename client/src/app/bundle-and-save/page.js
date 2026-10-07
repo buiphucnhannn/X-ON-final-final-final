@@ -137,7 +137,7 @@ export default function BundleAndSavePage() {
           {bundles.map((bundle) => (
             <div
               key={bundle.id}
-              className="bg-white border border-[#EBD5DB] hover:border-[#8F3349] p-6 sm:p-10 flex flex-col justify-between transition-all duration-300 rounded-none shadow-sm hover:shadow-md relative"
+              className="bg-white border border-[#EBD5DB] hover:border-[#8F3349] p-5 sm:p-10 flex flex-col justify-between transition-all duration-300 rounded-none shadow-sm hover:shadow-md relative"
             >
               {/* Discount Badge */}
               <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-[#8F3349] text-white text-[10px] tracking-widest uppercase font-bold px-3 py-1.5 rounded-none shadow-sm">
@@ -203,7 +203,7 @@ export default function BundleAndSavePage() {
 
         {/* Value Comparison Banner */}
         <Reveal variant="fade">
-        <section className="bg-white/80 border border-[#EBD5DB] p-8 sm:p-12 text-center rounded-none space-y-4 shadow-sm">
+        <section className="bg-white/80 border border-[#EBD5DB] p-5 sm:p-12 text-center rounded-none space-y-4 shadow-sm">
           <h3 className="font-serif text-2xl sm:text-3xl text-[#1F171A] text-balance">
             The X-On 100% Fit & Retention Guarantee
           </h3>

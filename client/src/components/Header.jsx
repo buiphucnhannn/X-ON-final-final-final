@@ -47,15 +47,22 @@ export default function Header({ cartCount = 0, onOpenCart }) {
     if (!mobileOpen) return;
     const original = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', handleKey);
+
     return () => {
       document.body.style.overflow = original;
+      window.removeEventListener('keydown', handleKey);
     };
   }, [mobileOpen]);
 
   const isActive = (href) => (href === '/' ? pathname === '/' : pathname?.startsWith(href.split('?')[0]));
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 pointer-events-none">
+    <header className="fixed inset-x-0 top-0 z-50 pointer-events-none w-full max-w-full overflow-x-clip">
       {/* Slim announcement line */}
       <div
         className={`pointer-events-auto overflow-hidden transition-all duration-300 bg-[#1F171A] text-white/85 ${
@@ -210,13 +217,19 @@ export default function Header({ cartCount = 0, onOpenCart }) {
 
         {/* Mobile panel */}
         {mobileOpen && (
-          <div
-            className={`pointer-events-auto xl:hidden backdrop-blur-xl mt-2 p-4 animate-fadeIn max-h-[calc(100dvh-150px)] overflow-y-auto rounded-none ${
-              scrolled
-                ? 'bg-white/95 text-[#1F171A] border border-[#ECD6DC] shadow-2xl'
-                : 'bg-[#1F171A]/95 text-white border border-white/10'
-            }`}
-          >
+          <>
+            {/* Backdrop click to dismiss */}
+            <div
+              onClick={() => setMobileOpen(false)}
+              className="pointer-events-auto fixed inset-0 bg-black/60 backdrop-blur-xs z-[-1] cursor-pointer"
+            />
+            <div
+              className={`pointer-events-auto xl:hidden backdrop-blur-xl mt-2 p-4 animate-fadeIn max-h-[calc(100dvh-150px)] overflow-y-auto rounded-none shadow-2xl ${
+                scrolled
+                  ? 'bg-white/95 text-[#1F171A] border border-[#ECD6DC]'
+                  : 'bg-[#1F171A]/95 text-white border border-white/10'
+              }`}
+            >
             {/* Home link for mobile users */}
             <Link
               href="/"
@@ -249,6 +262,7 @@ export default function Header({ cartCount = 0, onOpenCart }) {
               Login / Register
             </Link>
           </div>
+          </>
         )}
       </div>
     </header>

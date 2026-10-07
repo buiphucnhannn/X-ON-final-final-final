@@ -34,7 +34,7 @@ export default function CollectionSection({ onAddToCart, onQuickView, onOpenSizi
 
   return (
     <section id="handmade-press-ons" className="bg-[#FDF8F9] py-14 text-[#1F171A]">
-      <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[#F0D5DC] pb-6 gap-6">
           <div className="space-y-2">

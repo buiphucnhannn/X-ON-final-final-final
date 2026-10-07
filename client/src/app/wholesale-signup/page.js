@@ -105,7 +105,7 @@ export default function WholesaleSignupPage() {
               </Reveal>
 
               {/* Right Column: B2B Registration Form */}
-              <Reveal variant="right" className="lg:col-span-7 bg-white border border-[#EBD5DB] p-6 sm:p-12 shadow-sm">
+              <Reveal variant="right" className="lg:col-span-7 bg-white border border-[#EBD5DB] p-5 sm:p-12 shadow-sm">
                 {submitted ? (
                   <div className="py-10 text-center space-y-4">
                     <span className="text-4xl text-[#8F3349]">✦</span>

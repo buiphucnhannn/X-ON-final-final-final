@@ -29,6 +29,7 @@ function ShopCatalogContent() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSizingOpen, setIsSizingOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   const shapes = ['All', 'Almond', 'Coffin', 'Oval', 'Square', 'Stiletto'];
   const types = ['All', 'Handmade Press-On Nails', 'Nail Essentials', 'Best Sellers'];
@@ -185,11 +186,36 @@ function ShopCatalogContent() {
           </div>
         </div>
 
-        <div className="container-x py-10">
+        <div className="container-x py-8 sm:py-10">
+          {/* Mobile Filter Toggle Button */}
+          <div className="lg:hidden mb-6">
+            <button
+              type="button"
+              onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
+              className="w-full py-3 px-4 bg-white border border-[#ECD6DC] text-xs uppercase tracking-wider font-bold flex items-center justify-between text-[#1F171A] hover:border-[#8F3349] transition-all cursor-pointer shadow-xs"
+            >
+              <span className="flex items-center gap-2">
+                <span>🔍 Filter & Search</span>
+                {(selectedShape !== 'All' || searchTerm || maxPrice < 80) && (
+                  <span className="text-[10px] bg-[#FFF0F3] text-[#8F3349] border border-[#F2D0D8] px-2 py-0.5 font-mono font-bold">
+                    Active
+                  </span>
+                )}
+              </span>
+              <span className="text-xs text-[#8F3349]">
+                {mobileFilterOpen ? '▲ Hide Filters' : '▼ Show Filters'}
+              </span>
+            </button>
+          </div>
+
           {/* Layout Grid: Left Sidebar Filters + Right Product Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10">
             {/* Left Filter Sidebar */}
-            <div className="space-y-8 bg-white p-6 border border-[#ECD6DC] rounded-none shadow-sm h-fit">
+            <div
+              className={`space-y-8 bg-white p-5 sm:p-6 border border-[#ECD6DC] rounded-none shadow-sm h-fit ${
+                mobileFilterOpen ? 'block mb-6 lg:mb-0' : 'hidden lg:block'
+              }`}
+            >
               {/* Search */}
               <div className="space-y-2">
                 <h3 className="text-xs tracking-wider uppercase text-[#1F171A] font-bold">Search Products</h3>

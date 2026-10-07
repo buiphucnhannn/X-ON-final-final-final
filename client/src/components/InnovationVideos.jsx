@@ -33,8 +33,8 @@ export default function InnovationVideos() {
   ];
 
   return (
-    <section className="bg-petal-pattern py-10 sm:py-14 text-[#1F171A]">
-      <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+    <section className="bg-petal-pattern py-10 sm:py-14 text-[#1F171A] overflow-hidden">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Editorial Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-2.5">
           <span className="eyebrow block">✦ Salon Innovation & Rituals ✦</span>

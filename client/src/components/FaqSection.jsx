@@ -34,7 +34,7 @@ export default function FaqSection() {
 
   return (
     <section className="relative overflow-hidden bg-petal-pattern py-10 sm:py-14 text-[#1F171A]">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
           <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#8F3349] font-bold">
@@ -70,7 +70,7 @@ export default function FaqSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 sm:px-7 sm:pb-7 text-xs sm:text-sm text-[#554047] font-light leading-relaxed text-justify border-t border-[#EBD5DB] pt-4">
+                  <div className="px-5 pb-5 sm:px-7 sm:pb-7 text-xs sm:text-sm text-[#554047] font-light leading-relaxed text-left sm:text-justify border-t border-[#EBD5DB] pt-4">
                     {f.a}
                   </div>
                 )}

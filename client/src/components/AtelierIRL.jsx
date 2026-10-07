@@ -19,9 +19,10 @@ export default function AtelierIRL() {
         />
       </div>
 
-      {/* Balanced Soft Vignette for High-Contrast Typography (Giữ sáng vùng logo trong khi chữ bên trái đọc rõ) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 via-42% to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+      {/* Balanced Soft Vignette for High-Contrast Typography (Crisp text on mobile & desktop) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 via-42% to-black/30 lg:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-black/40 lg:bg-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none" />
 
       {/* Slim Luxury Ambient Bottom Blend into VIP Club */}
       <div className="absolute inset-x-0 bottom-0 h-5 sm:h-6 bg-gradient-to-b from-transparent to-[#160A0F]/80 pointer-events-none z-10" />
