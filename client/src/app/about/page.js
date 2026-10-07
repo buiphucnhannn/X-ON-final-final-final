@@ -148,56 +148,56 @@ export default function AboutPage() {
         {/* Minimalist Background Flourish */}
         <SectionAccent variant="center" />
 
-        {/* Visit the Showroom - Luminous Atelier Experience */}
+        {/* Visit the Showroom - Crystal-Clear Luminous Atelier Experience */}
         <Reveal variant="up">
-          <section className="relative w-full overflow-hidden min-h-[480px] sm:min-h-[540px] flex items-center justify-center my-10 bg-[#FAF1F4]">
-            {/* Luminous High-End Showroom Background Image */}
+          <section className="relative w-full overflow-hidden min-h-[500px] sm:min-h-[560px] flex items-center justify-center my-10 bg-[#FAF1F4]">
+            {/* Crisp, Sharp, High-Definition Atelier Background (Không bị phủ mờ trắng, giữ độ trong trẻo và nét) */}
             <div className="absolute inset-0">
               <img
-                src="/images/showroom_bright_light.jpg"
+                src="/images/showroom_bright_luminous.jpg"
                 alt="X-ON Flagship Atelier & Showroom Kissimmee Florida"
-                className="w-full h-full object-cover object-center scale-100 hover:scale-105 transition-transform duration-1000 brightness-105 saturate-100 contrast-95"
+                className="w-full h-full object-cover object-center select-none"
               />
             </div>
 
-            {/* Seamless Soft Ambient Transitions & Frosted Blush Veil */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF1F4] via-white/55 to-[#FAF1F4] pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.75)_0%,_rgba(250,241,244,0.4)_50%,_rgba(250,241,244,0.95)_100%)] pointer-events-none" />
+            {/* Subtle Edge Transitions Only (Chỉ làm mờ 2 mép biên hẹp để hòa nền, KHÔNG phủ mờ ảnh) */}
+            <div className="absolute inset-x-0 top-0 h-10 sm:h-14 bg-gradient-to-b from-[#FAF1F4] to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-x-0 bottom-0 h-10 sm:h-14 bg-gradient-to-t from-[#FAF1F4] to-transparent pointer-events-none z-10" />
 
-            {/* Centered Editorial Content */}
-            <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10 text-center space-y-6 py-16 sm:py-20 text-[#1F171A]">
-              <span className="inline-block px-4 py-1.5 text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#8F3349] bg-white/90 backdrop-blur-md border border-[#EBD5DB] font-bold shadow-xs">
+            {/* Focused Editorial Luxury Card (Giữ chữ sắc nét, dễ đọc trên nền ảnh thực tế) */}
+            <div className="relative z-20 max-w-2xl mx-auto px-6 sm:px-10 py-10 sm:py-12 bg-white/88 backdrop-blur-md border border-[#EBD5DB] shadow-[0_12px_40px_rgba(0,0,0,0.08)] text-center space-y-5 rounded-none m-4 sm:m-6">
+              <span className="block text-[10px] md:text-xs tracking-[0.32em] uppercase text-[#8F3349] font-semibold">
                 ✦ Florida Studio & Flagship Showroom ✦
               </span>
 
-              <h2 className="display text-4xl sm:text-5xl lg:text-6xl text-[#1F171A] font-normal text-balance">
+              <h2 className="display text-3xl sm:text-5xl text-[#1F171A] font-normal tracking-tight text-balance">
                 Visit The <em className="italic text-[#8F3349] font-serif">Showroom</em>
               </h2>
 
-              <p className="text-xs sm:text-sm text-[#4E3941] font-light max-w-xl mx-auto text-pretty leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#4E3941] font-light max-w-lg mx-auto text-pretty leading-relaxed">
                 Step into our private Kissimmee atelier to experience couture handmade silhouettes in person, get professionally sized by master artisans, and explore our full collection.
               </p>
 
-              {/* Studio Key Coordinates Pill */}
-              <div className="inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 px-6 py-3 bg-white/95 backdrop-blur-md border border-[#EBD5DB] text-xs text-[#2E1F24] shadow-sm">
+              {/* Studio Key Coordinates */}
+              <div className="py-2.5 px-4 bg-[#FAF1F4]/80 border border-[#EBD5DB] text-xs text-[#2E1F24] flex flex-wrap items-center justify-center gap-3 sm:gap-5">
                 <span className="flex items-center gap-1.5 font-medium">
                   <span className="text-[#8F3349]">📍</span> 3168 Bill Beck Blvd, Kissimmee, FL 34744
                 </span>
-                <span className="hidden sm:inline text-[#EBD5DB]">|</span>
+                <span className="hidden sm:inline text-[#D9B8C2]">|</span>
                 <span className="flex items-center gap-1.5 font-medium">
                   <span className="text-[#8F3349]">📞</span> 689-212-8888
                 </span>
-                <span className="hidden md:inline text-[#EBD5DB]">|</span>
+                <span className="hidden md:inline text-[#D9B8C2]">|</span>
                 <span className="hidden md:flex items-center gap-1.5 font-light text-[#665258]">
                   <span>🕒</span> Mon – Sat: 9:30 AM – 6:30 PM
                 </span>
               </div>
 
               {/* Luxury CTAs */}
-              <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5">
                 <a
                   href="/contact-us"
-                  className="px-9 py-3.5 bg-[#8F3349] hover:bg-[#732638] text-white text-xs tracking-[0.25em] uppercase font-bold transition-all rounded-none shadow-md flex items-center gap-2"
+                  className="px-8 py-3.5 bg-[#8F3349] hover:bg-[#732638] text-white text-xs tracking-[0.25em] uppercase font-bold transition-all rounded-none shadow-md flex items-center gap-2 cursor-pointer"
                 >
                   Schedule a Studio Visit <span>→</span>
                 </a>
@@ -205,7 +205,7 @@ export default function AboutPage() {
                   href="https://maps.google.com/?q=3168+Bill+Beck+Blvd,+Kissimmee,+FL+34744"
                   target="_blank"
                   rel="noreferrer"
-                  className="px-8 py-3.5 bg-white/90 hover:bg-white border border-[#E0B8C2] hover:border-[#8F3349] text-[#1F171A] text-xs tracking-[0.2em] uppercase font-semibold transition-all rounded-none shadow-xs flex items-center gap-2"
+                  className="px-7 py-3.5 bg-white hover:bg-[#FAF1F4] border border-[#D9B8C2] hover:border-[#8F3349] text-[#1F171A] text-xs tracking-[0.2em] uppercase font-semibold transition-all rounded-none shadow-xs flex items-center gap-2 cursor-pointer"
                 >
                   Get Directions <span>↗</span>
                 </a>
