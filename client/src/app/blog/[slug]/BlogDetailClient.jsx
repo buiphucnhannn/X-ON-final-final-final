@@ -83,7 +83,7 @@ export default function BlogDetailClient({ slug }) {
         onOpenSizing={() => setIsSizingOpen(true)}
       />
 
-      <main className="flex-1 max-w-[1200px] w-full mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-16">
+      <main className="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-10 lg:px-16 pt-36 pb-16">
         {/* Breadcrumb */}
         <div className="mb-8">
           <Link

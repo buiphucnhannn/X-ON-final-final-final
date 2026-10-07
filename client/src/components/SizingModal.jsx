@@ -35,7 +35,7 @@ export default function SizingModal({ isOpen, onClose }) {
     {
       id: 'thumb',
       name: 'Thumb',
-      vietName: 'Ngón Cái',
+      anatomical: 'Digit I (Pollex)',
       width: currentSize.thumb,
       svgWidth: 44,
       svgHeight: 58,
@@ -47,7 +47,7 @@ export default function SizingModal({ isOpen, onClose }) {
     {
       id: 'index',
       name: 'Index',
-      vietName: 'Ngón Trỏ',
+      anatomical: 'Digit II (Index)',
       width: currentSize.index,
       svgWidth: 36,
       svgHeight: 64,
@@ -59,7 +59,7 @@ export default function SizingModal({ isOpen, onClose }) {
     {
       id: 'middle',
       name: 'Middle',
-      vietName: 'Ngón Giữa',
+      anatomical: 'Digit III (Medius)',
       width: currentSize.middle,
       svgWidth: 38,
       svgHeight: 68,
@@ -71,7 +71,7 @@ export default function SizingModal({ isOpen, onClose }) {
     {
       id: 'ring',
       name: 'Ring',
-      vietName: 'Ngón Áp Út',
+      anatomical: 'Digit IV (Annularis)',
       width: currentSize.ring,
       svgWidth: 36,
       svgHeight: 64,
@@ -83,7 +83,7 @@ export default function SizingModal({ isOpen, onClose }) {
     {
       id: 'pinky',
       name: 'Pinky',
-      vietName: 'Ngón Út',
+      anatomical: 'Digit V (Minimus)',
       width: currentSize.pinky,
       svgWidth: 30,
       svgHeight: 52,

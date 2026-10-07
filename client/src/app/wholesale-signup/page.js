@@ -57,7 +57,7 @@ export default function WholesaleSignupPage() {
 
         {/* Benefits & Registration Form */}
         <section id="register-form" className="py-12">
-          <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               {/* Left Column: Perks & Contact */}
               <Reveal variant="left" className="lg:col-span-5 space-y-8">

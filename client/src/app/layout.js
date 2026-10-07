@@ -1,4 +1,5 @@
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import ScrollRevealObserver from "@/components/ScrollRevealObserver";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-full w-full max-w-full overflow-x-hidden bg-petal-pattern text-[#1F171A] font-sans antialiased selection:bg-[#FCE4E8] selection:text-[#8F3349]">
+        <ScrollRevealObserver />
         {children}
       </body>
     </html>

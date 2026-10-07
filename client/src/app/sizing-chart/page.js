@@ -44,7 +44,7 @@ export default function SizingChartPage() {
         {/* 3-Step Measurement Tutorial */}
         <Reveal variant="up">
         <section id="measure-guide" className="py-10 sm:py-14">
-          <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-10 lg:px-16">
             <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#8F3349] font-bold">
                 How to Measure at Home

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Reveal from './ui/Reveal';
 
 const COLS = [
   {
@@ -33,7 +34,8 @@ const COLS = [
 export default function Footer() {
   return (
     <footer className="bg-[#1F171A] text-white/80">
-      <div className="container-x pt-12 sm:pt-20 pb-10">
+      <Reveal variant="up">
+        <div className="container-x pt-12 sm:pt-20 pb-10">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 lg:gap-12 pb-14 border-b border-white/10">
           <div className="col-span-2 md:col-span-4 lg:col-span-4">
             <Link href="/" className="inline-flex items-center group" aria-label="X-On Home">
@@ -100,7 +102,8 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-      </div>
+        </div>
+      </Reveal>
     </footer>
   );
 }

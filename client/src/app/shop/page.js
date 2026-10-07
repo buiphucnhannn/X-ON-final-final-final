@@ -149,15 +149,15 @@ function ShopCatalogContent() {
         </PageHero>
 
         {/* Quick Filter Horizontal Category Pills */}
-        <div id="catalog-grid" className="border-b border-[#F0D5DC] bg-white sticky top-16 z-20 shadow-xs">
-          <div className="container-x py-4 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto sm:overflow-visible w-full sm:w-auto pb-1 sm:pb-0">
-              <span className="text-[10px] tracking-widest uppercase font-bold text-[#8F3349] mr-2">Category:</span>
+        <div id="catalog-grid" className="border-b border-[#F0D5DC] bg-white sticky top-14 sm:top-16 z-20 shadow-xs">
+          <div className="container-x py-2.5 sm:py-4 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+            <div className="flex flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto sm:overflow-visible w-full sm:w-auto pb-0.5 sm:pb-0 no-scrollbar">
+              <span className="text-[10px] tracking-widest uppercase font-bold text-[#8F3349] mr-1 sm:mr-2 shrink-0">Category:</span>
               {types.map((tp) => (
                 <button
                   key={tp}
                   onClick={() => handleSelectType(tp)}
-                  className={`px-4 py-2 text-xs tracking-wider uppercase font-semibold transition-all rounded-full cursor-pointer shrink-0 ${
+                  className={`px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs tracking-wider uppercase font-semibold transition-all rounded-full cursor-pointer shrink-0 ${
                     selectedType === tp
                       ? 'bg-[#8F3349] text-white shadow-sm'
                       : 'bg-[#FAF2F4] text-[#554047] hover:bg-[#F3E1E6]'
@@ -168,7 +168,7 @@ function ShopCatalogContent() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <span className="text-[10px] tracking-widest uppercase text-[#7A636A]">Sort By:</span>
               <select
                 value={sortBy}
@@ -176,7 +176,7 @@ function ShopCatalogContent() {
                   setSortBy(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="bg-[#FAF2F4] border border-[#ECD6DC] text-xs px-3 py-1.5 text-[#1F171A] rounded-none focus:outline-none focus:border-[#8F3349] cursor-pointer"
+                className="bg-[#FAF2F4] border border-[#ECD6DC] text-xs px-2.5 sm:px-3 py-1.5 text-[#1F171A] rounded-none focus:outline-none focus:border-[#8F3349] cursor-pointer"
               >
                 <option value="featured">Featured Curations</option>
                 <option value="price-low">Price: Low to High</option>

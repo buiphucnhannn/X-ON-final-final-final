@@ -33,7 +33,7 @@ export default function VipClub() {
       {/* Bottom Ombre Melt into global footer below */}
       <div className="absolute inset-x-0 bottom-0 h-5 sm:h-6 bg-gradient-to-b from-transparent to-[#1F171A] pointer-events-none z-10" />
 
-      <div className="relative z-20 max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16 text-center space-y-5">
+      <div className="relative z-20 max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16 text-center space-y-5">
         <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#C8A97E] font-bold block">
           ✦ X-On Newsletter & Updates ✦
         </span>

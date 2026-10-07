@@ -307,6 +307,151 @@
 ::-webkit-scrollbar-thumb { background: #dfb6be; }
 ::-webkit-scrollbar-thumb:hover { background: #c88a96; }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* ==========================================================================
+   SCROLL-DRIVEN REVEAL ANIMATIONS (BAN MUONG XANH ARCHITECTURE)
+   Bidirectional 2-way scroll animation system with bespoke luxury transitions
+   ========================================================================== */
+
+[data-reveal] {
+  transition-property: transform, opacity, filter;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 850ms;
+  will-change: transform, opacity, filter;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* 1. Default & Up variant */
+[data-reveal],
+[data-reveal="up"] {
+  opacity: 0;
+  transform: translateY(32px);
+}
+[data-reveal].is-revealed,
+[data-reveal="up"].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* 2. Down variant */
+[data-reveal="down"] {
+  opacity: 0;
+  transform: translateY(-28px);
+}
+[data-reveal="down"].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Left variant - Mobile responsive (translateY on mobile to prevent horizontal gutters) */
+[data-reveal="left"] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+@media (min-width: 640px) {
+  [data-reveal="left"] {
+    transform: translateX(-36px);
+  }
+}
+[data-reveal="left"].is-revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* 4. Right variant - Mobile responsive (translateY on mobile to prevent horizontal gutters) */
+[data-reveal="right"] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+@media (min-width: 640px) {
+  [data-reveal="right"] {
+    transform: translateX(36px);
+  }
+}
+[data-reveal="right"].is-revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* 5. Zoom variant */
+[data-reveal="zoom"] {
+  opacity: 0;
+  transform: scale(0.94);
+}
+[data-reveal="zoom"].is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 6. Zoomout variant */
+[data-reveal="zoomout"] {
+  opacity: 0;
+  transform: scale(1.04);
+}
+@media (max-width: 639px) {
+  [data-reveal="zoomout"] {
+    transform: scale(0.98);
+  }
+}
+[data-reveal="zoomout"].is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 7. Blur variant */
+[data-reveal="blur"] {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(20px) scale(0.98);
+}
+[data-reveal="blur"].is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+/* 8. Flip variant */
+[data-reveal="flip"] {
+  opacity: 0;
+  transform: perspective(900px) rotateX(8deg) translateY(24px);
+}
+[data-reveal="flip"].is-revealed {
+  opacity: 1;
+  transform: perspective(900px) rotateX(0deg) translateY(0);
+}
+
+/* 9. Fade variant */
+[data-reveal="fade"] {
+  opacity: 0;
+}
+[data-reveal="fade"].is-revealed {
+  opacity: 1;
+}
+
+/* 10. Tilt variant */
+[data-reveal="tilt"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+@media (min-width: 640px) {
+  [data-reveal="tilt"] {
+    transform: perspective(1000px) rotateZ(1.5deg) translateY(24px);
+  }
+}
+[data-reveal="tilt"].is-revealed {
+  opacity: 1;
+  transform: perspective(1000px) rotateZ(0deg) translateY(0);
+}
+
 /* Hide Next.js dev indicators & corner badges */
 nextjs-portal,
 nextjs-portal *,

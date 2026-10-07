@@ -22,7 +22,7 @@ export default function PressBar() {
 
   return (
     <section id="press-bar" className="bg-[#FAF2F4] border-b border-[#F0D5DC] py-12 text-[#1F171A]">
-      <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16">
         <div className="text-center mb-8">
           <span className="text-[10px] tracking-[0.3em] uppercase text-[#8F3349] font-bold">
             As Featured & Acclaimed In

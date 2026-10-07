@@ -41,7 +41,7 @@ export default function AboutPage() {
         {/* Brand Story & Mission */}
         <Reveal variant="left">
         <section className="py-10 sm:py-14">
-          <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
               <div className="lg:col-span-6 space-y-6">
                 <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#9E3F55] font-bold">
@@ -106,7 +106,7 @@ export default function AboutPage() {
         {/* 3 Core Pillars: Quality, Style, Performance */}
         <Reveal variant="up">
         <section className="py-10 sm:py-14">
-          <div className="max-w-[1720px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="max-w-[1720px] mx-auto px-4 sm:px-10 lg:px-16">
             <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
               <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#8F3349] font-bold">
                 The X-On Triad

@@ -331,7 +331,7 @@ export default function GalleryComingSoonPage() {
                       <label className="text-[10px] uppercase tracking-wider text-[#554047] font-bold block">
                         Request Priority Allocation Alert:
                       </label>
-                      <div className="flex gap-2">
+                      <div className="flex flex-col sm:flex-row gap-2">
                         <input
                           type="email"
                           required
@@ -342,7 +342,7 @@ export default function GalleryComingSoonPage() {
                           type="submit"
                           className="px-6 py-3 bg-[#8F3349] hover:bg-[#732638] text-white text-xs uppercase tracking-widest font-bold transition-all rounded-none cursor-pointer whitespace-nowrap"
                         >
-                          Reserve
+                          Reserve Allocation
                         </button>
                       </div>
                     </form>
