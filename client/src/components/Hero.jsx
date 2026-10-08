@@ -24,7 +24,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[100dvh] max-h-[920px] min-h-[540px] w-full overflow-hidden bg-[#1F171A] text-white flex flex-col justify-between pt-28 sm:pt-32 pb-4 sm:pb-6">
+    <section className="relative h-[100dvh] max-h-[960px] min-h-[560px] w-full overflow-hidden bg-[#1F171A] text-white flex flex-col justify-between pt-16 sm:pt-20 md:pt-24 pb-3 sm:pb-4">
       {/* Cinematic Background Video */}
       <video
         ref={videoRef}
@@ -37,45 +37,46 @@ export default function Hero() {
       >
         <source src="/videos/1K34PRO8E_DMCL0D.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/85" />
 
-      {/* Main Centered Editorial Typography (Shifted upwards to fit 1 screen harmoniously) */}
-      <div className="relative z-10 container-x flex flex-col items-center justify-center text-center my-auto -translate-y-2 sm:-translate-y-4 md:-translate-y-6">
-        {/* Welcome To + Luminous Transparent Logo (Không cần badge bao bọc, phát sáng nổi bật trên nền) */}
-        <div className="inline-flex items-center justify-center gap-3 sm:gap-4 md:gap-5 animate-rise mb-2">
-          <div className="flex items-center gap-2 text-[#F2D0D8]">
-            <span className="text-xs sm:text-sm text-[#FCE4E8] drop-shadow-[0_0_6px_rgba(252,228,232,0.8)]">◆</span>
-            <span className="text-xs sm:text-sm md:text-base tracking-[0.28em] sm:tracking-[0.32em] uppercase font-semibold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+      {/* Main Centered Editorial Typography (Perfect 1-screen fit with spacious breathing room) */}
+      <div className="relative z-10 container-x flex flex-col items-center justify-center text-center my-auto py-2 sm:py-3">
+        {/* Welcome To + Luminous Heroic Logo */}
+        <div className="flex flex-col items-center justify-center animate-rise mb-3 sm:mb-4 md:mb-5">
+          <div className="flex items-center gap-2 text-[#F2D0D8] mb-2 sm:mb-2.5">
+            <span className="text-[9px] sm:text-[10px] text-[#FCE4E8] drop-shadow-[0_0_6px_rgba(252,228,232,0.8)]">◆</span>
+            <span className="text-[10px] sm:text-xs tracking-[0.32em] sm:tracking-[0.36em] uppercase font-semibold text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Welcome to
             </span>
+            <span className="text-[9px] sm:text-[10px] text-[#FCE4E8] drop-shadow-[0_0_6px_rgba(252,228,232,0.8)]">◆</span>
           </div>
 
           <div className="relative inline-flex items-center justify-center">
-            {/* Lớp hào quang ánh sáng mềm tự nhiên phía sau logo (không viền, không box/badge) */}
+            {/* Lớp hào quang ánh sáng mềm tự nhiên phía sau logo */}
             <div
-              className="absolute inset-0 -inset-x-5 -inset-y-2 bg-gradient-to-r from-white/25 via-[#FCE4E8]/35 to-white/25 blur-lg rounded-full pointer-events-none -z-10"
+              className="absolute inset-0 -inset-x-10 sm:-inset-x-14 -inset-y-6 sm:-inset-y-8 bg-gradient-to-r from-white/20 via-[#FCE4E8]/35 to-white/20 blur-xl rounded-full pointer-events-none -z-10"
               aria-hidden="true"
             />
 
             <img
               src="/images/logo.png"
               alt="X-On"
-              className="h-11 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform hover:scale-105 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.7)] drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+              className="h-24 sm:h-30 md:h-36 lg:h-44 xl:h-48 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,0.75)] drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)]"
             />
           </div>
         </div>
 
-        <h1 className="display display-light text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] leading-[1.08] mt-2 sm:mt-3 max-w-4xl animate-rise delay-1 text-balance">
+        <h1 className="display display-light text-xl sm:text-2xl md:text-3xl lg:text-[2.35rem] xl:text-[2.6rem] leading-[1.14] mt-1 sm:mt-1.5 max-w-3xl animate-rise delay-1 text-balance">
           Press On Beyond Polish, <em>Slay the Extraordinary</em>
         </h1>
-        <p className="mt-3 sm:mt-4 max-w-2xl text-[13px] sm:text-sm md:text-base text-white/90 font-light leading-relaxed animate-rise delay-2 text-balance drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
+        <p className="mt-3 sm:mt-4 max-w-xl text-xs sm:text-[13px] md:text-sm text-white/90 font-light leading-relaxed animate-rise delay-2 text-balance drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
           Handmade press-on nails and carefully selected nail essentials — designed with quality, style, and performance in mind for nail lovers and professionals alike.
         </p>
         <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3 animate-rise delay-3">
-          <Link href="/shop" className="btn btn-light shadow-lg py-3 px-6 sm:px-8 text-xs sm:text-sm">
+          <Link href="/shop" className="btn btn-light shadow-lg py-2.5 px-6 sm:py-3 sm:px-7 text-xs sm:text-sm">
             Shop Press-On Nails <span className="btn-arrow">→</span>
           </Link>
-          <Link href="/shop?type=essentials" className="btn btn-glass py-3 px-6 sm:px-8 text-xs sm:text-sm">
+          <Link href="/shop?type=essentials" className="btn btn-glass py-2.5 px-6 sm:py-3 sm:px-7 text-xs sm:text-sm">
             Nail Essentials <span className="btn-arrow">→</span>
           </Link>
         </div>
