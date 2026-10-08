@@ -3,7 +3,7 @@
 /** Dark full-bleed banner for every inner page (keeps the glass header legible). */
 export default function PageHero({ eyebrow, title, intro, image = '/images/luxury_handmade_nails.jpg', children }) {
   return (
-    <section className="relative min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] h-auto w-full flex items-center justify-center overflow-hidden bg-[#1F171A] text-white py-16 sm:py-20">
+    <section className="relative min-h-[440px] sm:min-h-[500px] lg:min-h-[540px] h-auto w-full max-w-full flex items-center justify-center overflow-clip bg-[#1F171A] text-white py-16 sm:py-20 isolate">
       {/* Background Visual - Synchronized 16:9 framing, locked to uniform height */}
       <img
         src={image}

@@ -19,8 +19,10 @@ export default function GalleryComingSoonPage() {
 
   useEffect(() => {
     if (!selectedTeaser) return;
-    const original = document.body.style.overflow;
+    const bodyOriginal = document.body.style.overflow;
+    const htmlOriginal = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setSelectedTeaser(null);
@@ -28,7 +30,8 @@ export default function GalleryComingSoonPage() {
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = original;
+      document.body.style.overflow = bodyOriginal;
+      document.documentElement.style.overflow = htmlOriginal;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedTeaser]);

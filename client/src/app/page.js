@@ -112,7 +112,7 @@ export default function Home() {
   const totalCartCount = cartItems.reduce((acc, it) => acc + it.quantity, 0);
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-transparent text-[#1F171A] flex flex-col font-sans selection:bg-[#FCE4E8] selection:text-[#8F3349]">
+    <div className="min-h-screen w-full max-w-full bg-transparent text-[#1F171A] flex flex-col font-sans selection:bg-[#FCE4E8] selection:text-[#8F3349]">
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed inset-x-4 bottom-4 sm:inset-x-auto sm:bottom-6 sm:right-6 z-50 bg-white border-2 border-[#8F3349] text-[#1F171A] px-5 py-3 shadow-2xl flex items-center justify-center sm:justify-start gap-3 text-xs tracking-wider uppercase font-bold rounded-none animate-fadeIn text-center sm:text-left">

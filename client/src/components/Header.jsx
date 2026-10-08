@@ -45,8 +45,10 @@ export default function Header({ cartCount = 0, onOpenCart }) {
 
   useEffect(() => {
     if (!mobileOpen) return;
-    const original = document.body.style.overflow;
+    const bodyOriginal = document.body.style.overflow;
+    const htmlOriginal = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     const handleKey = (e) => {
       if (e.key === 'Escape') setMobileOpen(false);
@@ -54,7 +56,8 @@ export default function Header({ cartCount = 0, onOpenCart }) {
     window.addEventListener('keydown', handleKey);
 
     return () => {
-      document.body.style.overflow = original;
+      document.body.style.overflow = bodyOriginal;
+      document.documentElement.style.overflow = htmlOriginal;
       window.removeEventListener('keydown', handleKey);
     };
   }, [mobileOpen]);

@@ -1,11 +1,11 @@
 'use client';
 
 /**
- * Smoothly scrolls to a page section with a slow, graceful ease,
- * offset for the fixed header, without leaving a #hash in the URL.
- * Works on desktop and mobile.
+ * Buttery smooth scroll to a page section with a slow, graceful ease,
+ * offset for the fixed glass header, without leaving a #hash in the URL.
+ * Works on desktop and mobile. Honors prefers-reduced-motion.
  */
-const DURATION = 1100;
+const DURATION = 1000;
 const HEADER_OFFSET = 96;
 
 function easeInOutCubic(t) {
@@ -18,15 +18,13 @@ export function scrollToSection(id) {
   if (!el) return;
 
   const startY = window.scrollY;
-  const targetY = Math.max(
-    0,
-    el.getBoundingClientRect().top + startY - HEADER_OFFSET
-  );
+  const targetY = Math.max(0, el.getBoundingClientRect().top + startY - HEADER_OFFSET);
   const distance = targetY - startY;
   if (Math.abs(distance) < 2) return;
 
   const doc = document.documentElement;
   const prevBehavior = doc.style.scrollBehavior;
+  // Suspend CSS smooth so our rAF easing is the single driver (no double-ease jank)
   doc.style.scrollBehavior = 'auto';
 
   let raf = 0;
@@ -34,8 +32,8 @@ export function scrollToSection(id) {
   const cancel = () => {
     cancelled = true;
     cancelAnimationFrame(raf);
-    window.removeEventListener('wheel', cancel, { passive: true });
-    window.removeEventListener('touchmove', cancel, { passive: true });
+    window.removeEventListener('wheel', cancel);
+    window.removeEventListener('touchmove', cancel);
   };
   window.addEventListener('wheel', cancel, { passive: true });
   window.addEventListener('touchmove', cancel, { passive: true });

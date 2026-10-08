@@ -31,18 +31,38 @@
 
   html {
     scroll-behavior: smooth;
+    /* Use `clip` (not `hidden`) so html/body never become extra scroll
+       containers. `hidden` computes overflow-y to `auto` and spawns the
+       infamous double vertical scrollbar on Windows Chrome/Edge. */
     overflow-x: clip;
+    overflow-y: auto;
     width: 100%;
+    max-width: 100%;
     -webkit-text-size-adjust: 100%;
+    /* Reserve scrollbar space -> no layout shift, no width recalc loop */
+    scrollbar-gutter: stable;
+    /* Fixed glass header offset for native anchor jumps */
+    scroll-padding-top: 96px;
+    overscroll-behavior-x: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(143, 51, 73, 0.35) transparent;
   }
 
   body {
     font-family: var(--sans);
     background-color: #FAF1F4;
     color: #1f171a;
-    overflow-x: clip;
     width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     position: relative;
+    /* MUST stay `clip` + `visible`: only the viewport (html) scrolls.
+       A second scroll container here = 2 scrollbars. */
+    overflow-x: clip;
+    overflow-y: visible;
+    overscroll-behavior-x: none;
+    -webkit-font-smoothing: antialiased;
   }
 
   main {
@@ -300,11 +320,19 @@
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .animate-fadeIn { animation: fadeIn 0.3s ease both; }
 
-/* Clean single scrollbar with transparent track - no secondary pink bar */
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(143, 51, 73, 0.25); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(143, 51, 73, 0.45); }
+/* Clean single scrollbar with transparent track - no secondary pink bar.
+   Only the viewport (html) scrolls, so this styles the ONE true scrollbar. */
+html::-webkit-scrollbar { width: 8px; height: 8px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb { background: rgba(143, 51, 73, 0.25); border-radius: 4px; }
+html::-webkit-scrollbar-thumb:hover { background: rgba(143, 51, 73, 0.45); }
+body::-webkit-scrollbar { width: 8px; height: 8px; }
+body::-webkit-scrollbar-track { background: transparent; }
+body::-webkit-scrollbar-thumb { background: rgba(143, 51, 73, 0.25); border-radius: 4px; }
+
+/* Buttery page glide: GPU hint for fixed/absolute decor, no layout thrash */
+img, video { max-width: 100%; }
+video { transform: translateZ(0); }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none !important;
@@ -323,9 +351,15 @@
   transition-property: transform, opacity, filter;
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   transition-duration: 850ms;
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Release GPU memory once revealed -> smoother long-page glide */
+[data-reveal].is-revealed {
+  will-change: auto;
 }
 
 /* 1. Default & Up variant */

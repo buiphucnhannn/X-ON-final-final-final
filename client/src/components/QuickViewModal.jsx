@@ -13,8 +13,10 @@ export default function QuickViewModal({ product, isOpen, onClose, onAddToCart, 
 
   useEffect(() => {
     if (!isOpen) return;
-    const original = document.body.style.overflow;
+    const bodyOriginal = document.body.style.overflow;
+    const htmlOriginal = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
@@ -22,7 +24,8 @@ export default function QuickViewModal({ product, isOpen, onClose, onAddToCart, 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = original;
+      document.body.style.overflow = bodyOriginal;
+      document.documentElement.style.overflow = htmlOriginal;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);

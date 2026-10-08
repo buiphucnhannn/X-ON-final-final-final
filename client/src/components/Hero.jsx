@@ -24,8 +24,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[100dvh] max-h-[960px] min-h-[560px] w-full overflow-hidden bg-[#1F171A] text-white flex flex-col justify-between pt-16 sm:pt-20 md:pt-24 pb-3 sm:pb-4">
-      {/* Cinematic Background Video */}
+    <section className="relative h-[100dvh] max-h-[100dvh] w-full max-w-full overflow-clip bg-[#1F171A] text-white flex flex-col justify-between pt-16 sm:pt-20 md:pt-24 pb-3 sm:pb-4 isolate overscroll-x-none">
+      {/* Cinematic Background Video — decorative only, never creates its own scroll container */}
       <video
         ref={videoRef}
         autoPlay
@@ -33,7 +33,9 @@ export default function Hero() {
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover scale-105"
+        aria-hidden="true"
+        tabIndex={-1}
+        className="absolute inset-0 w-full h-full object-cover scale-105 pointer-events-none select-none will-change-transform"
       >
         <source src="/videos/1K34PRO8E_DMCL0D.mp4" type="video/mp4" />
       </video>
